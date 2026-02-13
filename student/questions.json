@@ -1,0 +1,26 @@
+{
+  "qcm": [
+    {
+      "id": 1,
+      "question": "What is 2 + 2?",
+      "options": ["3", "4", "5"],
+      "answer": "4"
+    },
+    {
+      "id": 2,
+      "question": "Which language runs in a browser?",
+      "options": ["Python", "JavaScript", "C++"],
+      "answer": "JavaScript"
+    }
+  ],
+  "coding": [
+    {
+      "id": 1,
+      "description": "Write a function that returns the sum of two numbers."
+    },
+    {
+      "id": 2,
+      "description": "Write a program that prints all even numbers from 1 to 20."
+    }
+  ]
+}

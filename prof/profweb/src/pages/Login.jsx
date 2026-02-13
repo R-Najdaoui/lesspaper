@@ -115,7 +115,6 @@ export default function Login() {
   );
 }
 
-// --- Style Objects ---
 
 const pageStyle = {
   minHeight: "100vh",
@@ -123,7 +122,7 @@ const pageStyle = {
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  fontFamily: "monospace", // Switched to monospaced for a more industrial feel
+  fontFamily: "monospace", 
   position: "relative",
   overflow: "hidden"
 };

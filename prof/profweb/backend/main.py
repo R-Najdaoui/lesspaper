@@ -10,7 +10,6 @@ import io
 import openpyxl
 from datetime import timedelta
 
-# Tes modules locaux
 import crud
 import models
 import schemas
@@ -33,7 +32,7 @@ app.add_middleware(
 )
 
 # 4. Dossier Statique pour les images
-# On s'assure que le dossier existe physiquement sur le disque
+
 if not os.path.exists("static"):
     os.makedirs("static")
 
@@ -113,7 +112,7 @@ def delete_exam(exam_id: int, db: Session = Depends(get_db), current_user: model
     crud.delete_exam(db, exam_id=exam_id)
     return {"ok": True}
 
-# --- ROUTE QUESTIONS (CORRIGÉE POUR FORMDATA) ---
+# --- ROUTE QUESTIONS  ---
 
 @app.post("/exams/{exam_id}/questions/", response_model=schemas.Question)
 async def create_question_for_exam(

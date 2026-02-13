@@ -154,7 +154,6 @@ function Dashboard() {
   );
 }
 
-// --- STYLES (Objets JS pour éviter les conflits CSS) ---
 const pageStyle = {
   minHeight: "100vh",
   backgroundColor: "#fff",

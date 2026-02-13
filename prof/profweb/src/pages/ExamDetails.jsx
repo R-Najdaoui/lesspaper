@@ -195,7 +195,6 @@ function ExamDetails() {
   );
 }
 
-// --- STYLES INDUSTRIAL BRUTALIST ---
 
 const pageStyle = {
   minHeight: "100vh",

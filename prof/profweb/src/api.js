@@ -9,7 +9,7 @@ export const login = async (username, password) => {
 
   const response = await fetch(`${API_URL}/token`, {
     method: "POST",
-    body: formData, // Pas de JSON ici, FastAPI attend du form-data pour OAuth2
+    body: formData, 
   });
 
   if (!response.ok) {
@@ -70,7 +70,7 @@ export const deleteExam = async (examId) => {
   if (!response.ok) throw new Error("Erreur lors de la suppression");
 };
 
-// --- QUESTIONS (CORRECTION UPLOAD IMAGE) ---
+// --- QUESTIONS  ---
 
 export const createQuestion = async (examId, questionData) => {
   // On utilise FormData pour permettre l'envoi de fichiers
@@ -92,8 +92,7 @@ export const createQuestion = async (examId, questionData) => {
   const response = await fetch(`${API_URL}/exams/${examId}/questions/`, {
     method: "POST",
     headers: {
-      // IMPORTANT: On ne met PAS "Content-Type": "application/json" ici.
-      // Le navigateur va automatiquement définir le "boundary" du multipart/form-data.
+
       Authorization: `Bearer ${localStorage.getItem("token")}`,
     },
     body: formData,

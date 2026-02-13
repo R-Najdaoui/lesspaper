@@ -41,12 +41,12 @@ function Navbar() {
   );
 }
 
-// --- STYLES INDUSTRIAL BRUTALIST ---
+
 
 const navStyle = {
   display: "flex",
   justifyContent: "space-between",
-  alignItems: "stretch", // Pour que les éléments touchent les bords
+  alignItems: "stretch", 
   height: "80px",
   backgroundColor: "#ffffff",
   borderBottom: "8px solid #000",

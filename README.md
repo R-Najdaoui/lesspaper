@@ -1,105 +1,80 @@
 # LessPaper - Modern Student Exam Application
 
-A beautiful, modern GUI application for taking exams with multiple choice questions (QCM) and coding questions, built with CustomTkinter.
+a high-performance, secure desktop application designed for digital examinations. Built specifically for Digital Development students, it replaces outdated paper-based coding exams with a secure IDE-like environment.
+# Project Architecture
 
-## Features
+The project is organized into modular components to separate instructor administration from student execution:
 
-- 🎨 **Modern UI**: Beautiful CustomTkinter interface with light theme
-- 📝 **QCM Questions**: Multiple choice questions with radio buttons
-- 💻 **Coding Questions**: Text areas for programming answers
-- 💾 **Auto-save**: Automatic saving every 30 seconds with visual feedback
-- 📊 **Timestamped Submissions**: Final submissions saved with timestamps
-- 🛡️ **Error Handling**: Robust file operations with user-friendly error messages
+    backend/: The FastAPI hub that manages the database and serves images.
 
-## Requirements
+    prof/profweb/: The React-based Teacher Portal for exam management.
 
-- Python 3.7+
-- CustomTkinter 5.2.0+
+    student/: The Python-based Desktop environment for students.
 
-## Installation
+# Launch Instructions (Step-by-Step)
 
-1. **Install dependencies:**
-   ```bash
-   ./install_dependencies.sh
-   ```
-   Or manually:
-   ```bash
-   pip install customtkinter
-   ```
+To run the entire project, you must open three separate terminals and follow this exact order:
+1. Start the Backend (API Server)
 
+The backend must be running first so the interfaces can connect to the database.
+Bash
 
-2. **Ensure questions file exists:**
-   The application expects a `questions.json` file in the same directory with the following format:
-   ```json
-   {
-     "qcm": [
-       {
-         "id": "q1",
-         "question": "What is 2+2?",
-         "options": ["3", "4", "5", "6"]
-       }
-     ],
-     "coding": [
-       {
-         "id": "c1",
-         "description": "Write a function that adds two numbers"
-       }
-     ]
-   }
-   ```
+cd backend
+# Activate your virtual environment
+source venv/bin/activate  # Windows: venv\Scripts\activate
+# Start the server using Uvicorn
+uvicorn main:app --reload
 
-## Usage
+The API will be available at http://localhost:8000.
+2. Start the Teacher Web Portal
+Bash
 
-1. **Run the application:**
-   ```bash
-   python student/lesspaper.py
-   ```
+cd prof/profweb
+npm install       # Only needed the first time
+npm run dev
 
-2. **Enter your student ID** and click "Start Exam"
+Access the dashboard at http://localhost:5173.
+3. Launch the Student Application
+Bash
 
-3. **Answer the questions:**
-   - Select options for QCM questions using radio buttons
-   - Write code in the text areas for programming questions
+cd student
+source venv/bin/activate
+python lesspaper.py
 
-4. **Auto-save status** is shown at the bottom (green checkmark when saved)
+# Key Features
 
-5. **Submit** when finished - your answers will be saved with a timestamp
+    🛡️ Anti-Cheat System: Integrated "Kiosk Mode" that locks the workstation in fullscreen during the exam.
 
-## File Structure
+    💻 Coding Interface: Dedicated text areas for writing code naturally.
 
-- `student/lesspaper.py` - Main application
-- `submissions/` - Auto-created folder for student submissions
-- `questions.json` - Question definitions (you need to create this)
-- `requirements.txt` - Python dependencies
-- `install_dependencies.sh` - Installation script
+    📊 Activity Dashboard: Teacher portal features "ANALYSE_ACTIVITÉ" charts for real-time monitoring.
 
+    🖼️ Multimedia Support: Dynamically fetches diagrams and images from the FastAPI backend.
 
-1. **Screen Size Geometry**: Sets window geometry to match screen dimensions (`{width}x{height}+0+0`)
-2. **Fullscreen Attribute**: Uses `root.attributes("-fullscreen", True)` for native fullscreen support
-3. **Topmost Window**: Keeps window on top with `attributes("-topmost", True)`
-4. **Focus Enforcement**: Forces window focus with `focus_force()` to prevent alt-tabbing
-5. **Periodic Reinforcement**: Every 5 seconds, fullscreen state is re-applied to combat window manager interference
+    💾 Auto-save: Local draft redundancy every 30 seconds to prevent data loss.
 
-This approach ensures the application works reliably on:
-- **Ubuntu (GNOME/KDE)**: Handles window manager quirks that may resist fullscreen
-- **Windows**: Native fullscreen support with additional safety measures
-- **Other Linux Desktops**: Fallback geometry ensures screen coverage
+# File Structure
 
-## Student Submissions
+lesspaper/
+├── backend/            # FastAPI Server & Database
+│   ├── static/         # Uploaded exam images
+│   └── main.py         # API Endpoints (Run with Uvicorn)
+├── prof/               # Instructor Resources
+│   └── profweb/        # React Web Portal (Frontend)
+├── student/            # Student Application
+│   ├── lesspaper.py    # Main UI & Logic
+│   ├── anticheat.py    # Security Manager
+│   └── submissions/    # Local auto-save drafts
+└── requirements.txt    # Global dependencies
 
-- Auto-saves are stored as `submissions/{student_id}/autosave.json`
-- Final submissions are stored as `submissions/{student_id}/soumission_{timestamp}.json`
+# Anti-Cheat Security (Kiosk Mode)
 
-## Customization
+The anticheat.py module enforces academic integrity through:
 
-The appearance and behavior can be customized in the code:
+    Native Fullscreen: Overrides window decorations to cover the entire screen.
 
-### Customization
-- **Theme**: Change `ctk.set_default_color_theme("blue")` to "green" or "dark-blue"
-- **Mode**: Change `ctk.set_appearance_mode("light")` to "dark" or "system"
-- **Colors**: Modify button colors and other UI elements
-- **Auto-save interval**: Change `INTERVALLE_AUTOSAVE = 30`
+    Topmost Window: Keeps the application above all other system windows.
 
-## License
+    Focus Capture: Automatically re-claims focus if the student tries to switch apps.
 
-This project is open source and available under the MIT License.
+    Close Prevention: Blocks exit commands like Alt+F4 until the exam is submitted.

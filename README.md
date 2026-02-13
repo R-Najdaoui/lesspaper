@@ -1,7 +1,26 @@
 # LessPaper - Modern Student Exam Application
 
-a high-performance, secure desktop application designed for digital examinations. Built specifically for Digital Development students, it replaces outdated paper-based coding exams with a secure IDE-like environment.
-# Project Architecture
+LessPaper is a full-stack digital examination system designed to replace traditional paper-based coding exams with a secure, monitored, and scalable digital environment.
+
+The platform combines a FastAPI backend, a React-based instructor dashboard, and a Python desktop application with a custom-built anti-cheat “Kiosk Mode” system.
+
+It was built to modernize academic assessment workflows while maintaining exam integrity.
+# 🚀 Key Features
+🛡️ Anti-Cheat Kiosk Mode
+Locks the workstation in fullscreen, prevents app switching, and blocks exit shortcuts until submission.
+
+💻 Secure Coding Environment
+Dedicated code editor interface for structured exam responses.
+
+📊 Instructor Analytics Dashboard
+Real-time monitoring tools and activity visualization.
+
+🖼️ Dynamic Multimedia Support
+Exams can include images and diagrams served directly from the backend.
+
+💾 Auto-Save Protection
+Student answers are saved locally every 30 seconds to prevent data loss.
+# System Architecture 
 
 The project is organized into modular components to separate instructor administration from student execution:
 
@@ -10,6 +29,30 @@ The project is organized into modular components to separate instructor administ
     prof/profweb/: The React-based Teacher Portal for exam management.
 
     student/: The Python-based Desktop environment for students.
+                ┌─────────────────────┐
+                │  React Teacher Portal│
+                │     (prof/profweb)  │
+                └──────────┬──────────┘
+                           │
+                           ▼
+                ┌─────────────────────┐
+                │     FastAPI API     │
+                │      (backend)      │
+                └──────────┬──────────┘
+                           │
+                           ▼
+                ┌─────────────────────┐
+                │  Student Desktop App│
+                │      (Python)       │
+                └─────────────────────┘
+
+# Screenshots
+ Teacher Dashboard
+![alt text](screenshots/image1.png)
+![alt text](screenshots/image3.png)
+ Student Exam Interface
+ ![alt text](screenshots/image2.png)
+
 
 # Launch Instructions (Step-by-Step)
 
@@ -41,32 +84,49 @@ cd student
 source venv/bin/activate
 python lesspaper.py
 
-# Key Features
 
-    🛡️ Anti-Cheat System: Integrated "Kiosk Mode" that locks the workstation in fullscreen during the exam.
-
-    💻 Coding Interface: Dedicated text areas for writing code naturally.
-
-    📊 Activity Dashboard: Teacher portal features "ANALYSE_ACTIVITÉ" charts for real-time monitoring.
-
-    🖼️ Multimedia Support: Dynamically fetches diagrams and images from the FastAPI backend.
-
-    💾 Auto-save: Local draft redundancy every 30 seconds to prevent data loss.
-
-# File Structure
-
+📂 Project Structure
 lesspaper/
-├── backend/            # FastAPI Server & Database
-│   ├── static/         # Uploaded exam images
-│   └── main.py         # API Endpoints (Run with Uvicorn)
-├── prof/               # Instructor Resources
-│   └── profweb/        # React Web Portal (Frontend)
-├── student/            # Student Application
-│   ├── lesspaper.py    # Main UI & Logic
-│   ├── anticheat.py    # Security Manager
-│   └── submissions/    # Local auto-save drafts
-└── requirements.txt    # Global dependencies
+├── backend/              # FastAPI Server & Database
+│   ├── static/           # Uploaded exam images
+│   └── main.py           # API entry point
+├── prof/
+│   └── profweb/          # React Instructor Dashboard
+├── student/
+│   ├── lesspaper.py      # Main UI & application logic
+│   ├── anticheat.py      # Kiosk Mode implementation
+│   └── submissions/      # Local auto-save drafts
+├── requirements.txt
+└── README.md
 
+# 🛠 Tech Stack
+Backend
+
+FastAPI
+
+Uvicorn
+
+Python
+
+SQLite / (replace if different)
+
+Teacher Portal (Frontend)
+
+React
+
+Vite
+
+JavaScript
+
+(Add any chart library if used)
+
+Student Application
+
+Python
+
+Tkinter / CustomTkinter
+
+Custom anti-cheat module
 # Anti-Cheat Security (Kiosk Mode)
 
 The anticheat.py module enforces academic integrity through:

@@ -6,20 +6,21 @@ The platform combines a FastAPI backend, a React-based instructor dashboard, and
 
 It was built to modernize academic assessment workflows while maintaining exam integrity.
 # Key Features
-🛡️ Anti-Cheat Kiosk Mode
+1. Anti-Cheat Kiosk Mode
 Locks the workstation in fullscreen, prevents app switching, and blocks exit shortcuts until submission.
 
-💻 Secure Coding Environment
+2. Secure Coding Environment
 Dedicated code editor interface for structured exam responses.
 
-📊 Instructor Analytics Dashboard
+3. Instructor Analytics Dashboard
 Real-time monitoring tools and activity visualization.
 
-🖼️ Dynamic Multimedia Support
+4. Dynamic Multimedia Support
 Exams can include images and diagrams served directly from the backend.
 
-💾 Auto-Save Protection
+5. Auto-Save Protection
 Student answers are saved locally every 30 seconds to prevent data loss.
+
 # System Architecture 
 
 The project is organized into modular components to separate instructor administration from student execution:
@@ -86,6 +87,7 @@ python lesspaper.py
 
 
 # Project Structure
+```plaintext
 lesspaper/
 ├── backend/              # FastAPI Server & Database
 │   ├── static/           # Uploaded exam images
@@ -101,7 +103,8 @@ lesspaper/
 └── README.md
 
 
-# 🛠 Tech Stack
+
+# Tech Stack
 Backend
 
 FastAPI

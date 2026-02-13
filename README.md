@@ -85,25 +85,6 @@ cd student
 source venv/bin/activate
 python lesspaper.py
 
-
-# Project Structure
-```plaintext
-lesspaper/
-├── backend/              # FastAPI Server & Database
-│   ├── static/           # Uploaded exam images
-│   └── main.py           # API entry point
-├── prof/
-│   └── profweb/          # React Instructor Dashboard
-├── student/
-│   ├── lesspaper.py      # Main UI & application logic
-│   ├── anticheat.py      # Kiosk Mode implementation
-│   └── submissions/      # Local auto-save drafts
-├── requirements.txt
-├── install_dependencies.sh
-└── README.md
-
-
-
 # Tech Stack
 Backend
 
@@ -143,3 +124,22 @@ The anticheat.py module enforces academic integrity through:
     Focus Capture: Automatically re-claims focus if the student tries to switch apps.
 
     Close Prevention: Blocks exit commands like Alt+F4 until the exam is submitted.
+
+
+# Project Structure
+```plaintext
+lesspaper/
+├── backend/              # FastAPI Server & Database
+│   ├── static/           # Uploaded exam images
+│   └── main.py           # API entry point
+├── prof/
+│   └── profweb/          # React Instructor Dashboard
+├── student/
+│   ├── lesspaper.py      # Main UI & application logic
+│   ├── anticheat.py      # Kiosk Mode implementation
+│   └── submissions/      # Local auto-save drafts
+├── requirements.txt
+├── install_dependencies.sh
+└── README.md
+
+

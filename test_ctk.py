@@ -16,7 +16,7 @@ root.title("Test")
 label = ctk.CTkLabel(root, text="CustomTkinter is working!")
 label.pack(pady=20)
 
-# Test fullscreen
+
 root.attributes("-fullscreen", True)
 root.update()
 

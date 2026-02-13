@@ -1,11 +1,11 @@
-# LessPaper - Modern Student Exam Application
+# LessPaper
 
 LessPaper is a full-stack digital examination system designed to replace traditional paper-based coding exams with a secure, monitored, and scalable digital environment.
 
 The platform combines a FastAPI backend, a React-based instructor dashboard, and a Python desktop application with a custom-built anti-cheat “Kiosk Mode” system.
 
 It was built to modernize academic assessment workflows while maintaining exam integrity.
-# 🚀 Key Features
+# Key Features
 🛡️ Anti-Cheat Kiosk Mode
 Locks the workstation in fullscreen, prevents app switching, and blocks exit shortcuts until submission.
 
@@ -47,10 +47,10 @@ The project is organized into modular components to separate instructor administ
                 └─────────────────────┘
 
 # Screenshots
- Teacher Dashboard
+# Teacher Dashboard
 ![alt text](screenshots/image1.png)
 ![alt text](screenshots/image3.png)
- Student Exam Interface
+# Student Exam Interface
  ![alt text](screenshots/image2.png)
 
 
@@ -85,7 +85,7 @@ source venv/bin/activate
 python lesspaper.py
 
 
-📂 Project Structure
+# Project Structure
 lesspaper/
 ├── backend/              # FastAPI Server & Database
 │   ├── static/           # Uploaded exam images
@@ -97,7 +97,9 @@ lesspaper/
 │   ├── anticheat.py      # Kiosk Mode implementation
 │   └── submissions/      # Local auto-save drafts
 ├── requirements.txt
+├── install_dependencies.sh
 └── README.md
+
 
 # 🛠 Tech Stack
 Backend

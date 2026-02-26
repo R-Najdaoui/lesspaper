@@ -94,7 +94,7 @@ Uvicorn
 
 Python
 
-SQLite / (replace if different)
+SQLite 
 
 Teacher Portal (Frontend)
 
@@ -104,7 +104,6 @@ Vite
 
 JavaScript
 
-(Add any chart library if used)
 
 Student Application
 
